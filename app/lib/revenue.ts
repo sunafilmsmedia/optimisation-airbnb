@@ -1,11 +1,10 @@
 export type Answers = Record<string, unknown>;
 
 /**
- * Commission charged by the management service, as a fraction of gross
- * revenue. The "net" figures on the result screen are computed after this fee.
- * TODO: confirmer le vrai pourcentage avec le client.
+ * Conciergite charges 12-15 % of net revenue. We compute with the top of the
+ * range so the owner's "net" figure is never overstated.
  */
-export const MANAGEMENT_FEE = 0.2;
+export const MANAGEMENT_FEE = 0.15;
 
 const DAYS_PER_MONTH = 30.4;
 const MAX_OCCUPANCY = 0.85;

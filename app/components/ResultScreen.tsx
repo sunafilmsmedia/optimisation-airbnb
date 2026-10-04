@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   formatMoney,
   MANAGEMENT_FEE,
@@ -134,15 +134,15 @@ function RevenueComparison({ estimate }: { estimate: RevenueEstimate }) {
                 <strong className="text-emerald-600">
                   +{formatMoney(netGain)}
                 </strong>{" "}
-                de plus qu&apos;aujourd&apos;hui, après nos frais de gestion (
-                {Math.round(MANAGEMENT_FEE * 100)} %), et sans lever le petit
-                doigt.
+                de plus qu&apos;aujourd&apos;hui, après nos frais de gestion
+                (calculés à {Math.round(MANAGEMENT_FEE * 100)} %, le maximum), et
+                sans lever le petit doigt.
               </>
             ) : (
               <>
                 Des revenus nets comparables à aujourd&apos;hui, après nos frais
-                de gestion ({Math.round(MANAGEMENT_FEE * 100)} %), sans aucune
-                gestion de votre part.
+                de gestion (calculés à {Math.round(MANAGEMENT_FEE * 100)} %, le
+                maximum), sans aucune gestion de votre part.
               </>
             )}
           </p>
@@ -271,6 +271,8 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
         currency: "CAD",
       });
       setSubmitted(true);
+      // The full report renders above where the form was — bring them to it.
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       console.error(err);
       setError("Un problème est survenu. Réessayez dans un instant.");
@@ -291,13 +293,36 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
       transition={{ duration: 0.3 }}
       className="rounded-2xl md:rounded-3xl bg-white/90 backdrop-blur-md border border-blue-100 shadow-xl shadow-blue-100/40 p-6 md:p-9"
     >
-      <h2 className="font-display text-2xl md:text-3xl text-[#0B1F4D] leading-tight mb-2">
-        Recevez votre plan d&apos;optimisation gratuit
-      </h2>
-      <p className="text-slate-500 text-sm md:text-base mb-5 leading-relaxed">
-        Un expert Conciergite analyse votre annonce et vous rappelle avec une stratégie
-        de prix et de diffusion sur mesure. Sans engagement.
-      </p>
+      <div className="text-center mb-6">
+        <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200 mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+          Analyse terminée
+        </span>
+        {estimate.gainPercent > 0 ? (
+          <>
+            <p className="text-slate-500 text-sm md:text-base">
+              Votre propriété pourrait générer jusqu&apos;à
+            </p>
+            <p className="font-display text-6xl md:text-7xl font-semibold text-[#1D4ED8] leading-none my-2">
+              +{estimate.gainPercent}&nbsp;%
+            </p>
+            <p className="text-slate-500 text-sm md:text-base">
+              de revenus en plus.
+            </p>
+          </>
+        ) : (
+          <p className="font-display text-2xl md:text-3xl text-[#0B1F4D] leading-tight">
+            Votre propriété performe déjà bien.
+          </p>
+        )}
+        <h2 className="font-display text-2xl md:text-3xl text-[#0B1F4D] leading-tight mt-5">
+          Découvrez exactement comment on le fait
+        </h2>
+        <p className="text-slate-500 text-sm md:text-base mt-2 leading-relaxed">
+          Entrez vos coordonnées pour voir vos revenus par mois et par saison,
+          ce qui resterait dans vos poches, et notre processus complet.
+        </p>
+      </div>
 
       <div className="grid gap-3">
         <label className="block">
@@ -378,7 +403,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
         disabled={!canSubmit}
         className="mt-5 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1D4ED8] text-white text-base font-medium shadow-lg shadow-blue-200 hover:bg-[#1E3A8A] disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed transition-all"
       >
-        {submitting ? "Envoi…" : "Recevoir mon plan gratuit"}
+        {submitting ? "Envoi…" : "Voir mon analyse complète"}
       </button>
     </motion.form>
   ) : (
@@ -387,13 +412,27 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="rounded-2xl md:rounded-3xl bg-emerald-50 border border-emerald-200 p-5 md:p-6 text-emerald-800 text-sm md:text-base"
+      className="rounded-2xl md:rounded-3xl bg-emerald-50 border border-emerald-200 p-5 md:p-6 text-emerald-800 text-sm md:text-base mb-5"
     >
-      ✓ Merci{firstName ? `, ${firstName}` : ""}&nbsp;! L&apos;équipe Conciergite vous
-      contactera dans les prochains jours ouvrables avec votre plan
-      d&apos;optimisation.
+      ✓ Merci{firstName ? `, ${firstName}` : ""}&nbsp;! Voici votre analyse
+      complète. L&apos;équipe Conciergite vous contactera aussi dans les
+      prochains jours ouvrables.
     </motion.div>
   );
+
+  // Gate: only the % teaser + contact form until the lead is submitted.
+  if (!submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-2xl mx-auto"
+      >
+        {leadBlock}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -402,6 +441,8 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
       transition={{ duration: 0.5 }}
       className="w-full max-w-3xl mx-auto"
     >
+      {leadBlock}
+
       {/* 1. Headline + revenue comparison */}
       <div className="rounded-2xl md:rounded-3xl bg-white/90 backdrop-blur-md border border-blue-100 shadow-xl shadow-blue-100/40 p-6 md:p-9 mb-5">
         <div className="flex items-center justify-between flex-wrap gap-3 mb-3">
@@ -428,11 +469,8 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
       {/* 2. How much Conciergite adds, and how */}
       <GainAndProcess estimate={estimate} />
 
-      {/* 3. Contact form (or success state) */}
-      <AnimatePresence mode="wait">{leadBlock}</AnimatePresence>
-
-      {/* 4. Levers + market insight */}
-      <div className="mt-5 rounded-2xl md:rounded-3xl bg-white/90 backdrop-blur-md border border-blue-100 shadow-xl shadow-blue-100/40 p-6 md:p-9">
+      {/* 3. Levers + market insight */}
+      <div className="rounded-2xl md:rounded-3xl bg-white/90 backdrop-blur-md border border-blue-100 shadow-xl shadow-blue-100/40 p-6 md:p-9">
         {estimate.levers.length > 0 && (
           <div className="mb-7">
             <h3 className="font-display text-xl md:text-2xl text-[#0B1F4D] mb-3">
