@@ -2,10 +2,13 @@ import FormFlow from "./components/FormFlow";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen page-bg overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden">
+      {/* Fixed so the bottom gradient stays visible on long result pages */}
+      <div className="fixed inset-0 page-bg pointer-events-none" />
+
       {/* Wordmark — swap for the Conciergite logo file once received */}
       <div className="absolute top-4 left-4 md:top-6 md:left-8 z-20">
-        <span className="font-display text-lg md:text-xl font-semibold text-[#0B1F4D]">
+        <span className="font-display text-lg md:text-xl font-bold text-[#0B1F4D]">
           Concierg<span className="text-[#1D4ED8]">ite</span>
         </span>
       </div>

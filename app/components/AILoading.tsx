@@ -53,7 +53,7 @@ export default function AILoading() {
           </motion.div>
         </div>
 
-        <p className="font-display italic text-lg md:text-xl text-[#1D4ED8] mb-1">
+        <p className="font-display font-medium text-lg md:text-xl text-[#1D4ED8] mb-1">
           L&apos;intelligence artificielle
         </p>
         <h2 className="font-display text-2xl md:text-3xl text-[#0B1F4D] leading-tight mb-3">

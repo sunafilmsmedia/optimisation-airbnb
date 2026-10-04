@@ -32,15 +32,35 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  letter-spacing: -0.025em;
 }
 
-/* Soft blue glow on white */
+/* White page with a clearly visible blue gradient rising from the bottom */
 .page-bg {
-  background:
-    radial-gradient(1100px 520px at 50% -5%, rgba(59, 130, 246, 0.14), transparent 70%),
-    radial-gradient(800px 480px at 90% 100%, rgba(29, 78, 216, 0.08), transparent 70%),
-    #ffffff;
+  background: linear-gradient(
+    to top,
+    #1D4ED8 0%,
+    #3B82F6 14%,
+    #93C5FD 32%,
+    #DBEAFE 50%,
+    #ffffff 72%
+  );
+}
+
+/* Right-to-left photo marquee (track holds the list twice) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation-duration: 180s; }
 }
 
 /* Custom range input */

@@ -7,6 +7,7 @@ import type { RevenueEstimate } from "@/app/lib/revenue";
 import QuestionInput from "./QuestionInput";
 import ResultScreen, { type AIReport } from "./ResultScreen";
 import AILoading from "./AILoading";
+import Landing from "./Landing";
 
 type Answers = Record<string, unknown>;
 
@@ -35,6 +36,7 @@ const Arrow = () => (
 );
 
 export default function FormFlow() {
+  const [started, setStarted] = useState(false);
   const [answers, setAnswers] = useState<Answers>({});
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -133,24 +135,14 @@ export default function FormFlow() {
     );
   }
 
+  if (!started) {
+    return <Landing questionCount={total} onStart={() => setStarted(true)} />;
+  }
+
   if (!current) return null;
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      {/* Headline — first question only, so later steps stay compact on mobile */}
-      {index === 0 && (
-      <div className="text-center mb-6 md:mb-8">
-        <h1 className="font-display text-3xl md:text-5xl text-[#0B1F4D] leading-tight">
-          Découvrez comment maximiser le potentiel de votre{" "}
-          <span className="italic text-[#1D4ED8]">Airbnb</span>
-        </h1>
-        <p className="text-slate-500 text-sm md:text-base mt-3">
-          Répondez à {total} questions rapides et obtenez une estimation de vos
-          revenus optimisés.
-        </p>
-      </div>
-      )}
-
       {/* Progress bar */}
       <div className="mb-4 md:mb-6">
         <div className="flex items-center justify-between mb-1.5 text-[11px] md:text-xs text-slate-500">
