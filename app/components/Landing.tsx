@@ -7,9 +7,9 @@ const PHOTOS = [
   { src: "/photos/chalet-1.jpg", sector: "Laurentides" },
   { src: "/photos/chalet-2.jpg", sector: "Gatineau" },
   { src: "/photos/chalet-3.jpg", sector: "Estrie" },
+  { src: "/photos/chalet-7.jpg", sector: "Laurentides" },
   { src: "/photos/chalet-4.jpg", sector: "Montréal" },
   { src: "/photos/chalet-5.jpg", sector: "Québec" },
-  { src: "/photos/chalet-6.jpg", sector: "Laurentides" },
 ];
 
 type Props = {
