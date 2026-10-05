@@ -29,7 +29,7 @@ function PhotoCard({ src, sector }: { src: string; sector: string }) {
       />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
       <span className="absolute left-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs md:text-sm font-semibold text-[#0B1F4D] shadow">
-        <svg className="w-3.5 h-3.5 text-[#1D4ED8]" viewBox="0 0 20 20" fill="currentColor">
+        <svg className="w-3.5 h-3.5 text-[#003DA5]" viewBox="0 0 20 20" fill="currentColor">
           <path
             fillRule="evenodd"
             d="M10 18s6-5.2 6-10A6 6 0 1 0 4 8c0 4.8 6 10 6 10Zm0-7.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
@@ -54,7 +54,7 @@ export default function Landing({ questionCount, onStart }: Props) {
       <div className="w-full max-w-3xl mx-auto text-center">
         <h1 className="font-display text-4xl md:text-6xl font-bold text-[#0B1F4D] leading-[1.05]">
           Découvrez comment maximiser le potentiel de votre{" "}
-          <span className="text-[#1D4ED8]">Airbnb</span>
+          <span className="text-[#003DA5]">Airbnb</span>
         </h1>
         <p className="text-slate-600 text-base md:text-lg mt-4 md:mt-5 max-w-xl mx-auto leading-relaxed">
           Répondez à {questionCount} questions rapides et voyez combien votre
@@ -63,7 +63,7 @@ export default function Landing({ questionCount, onStart }: Props) {
         <button
           type="button"
           onClick={onStart}
-          className="mt-7 inline-flex items-center gap-2 px-7 md:px-9 py-3.5 md:py-4 rounded-full bg-[#1D4ED8] text-white text-base md:text-lg font-semibold shadow-xl shadow-blue-300/60 hover:bg-[#1E3A8A] hover:-translate-y-0.5 transition-all"
+          className="mt-7 inline-flex items-center gap-2 px-7 md:px-9 py-3.5 md:py-4 rounded-full bg-[#003DA5] text-white text-base md:text-lg font-semibold shadow-xl shadow-blue-300/60 hover:bg-[#1E3A8A] hover:-translate-y-0.5 transition-all"
         >
           Calculer mon potentiel
           <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none">

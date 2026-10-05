@@ -38,7 +38,7 @@ type LeadDraft = {
 };
 
 const inputClass =
-  "w-full px-4 py-3 text-base md:text-lg text-[#0B1F4D] bg-white border border-blue-100 rounded-xl focus:outline-none focus:border-[#1D4ED8] focus:ring-4 focus:ring-blue-100";
+  "w-full px-4 py-3 text-base md:text-lg text-[#0B1F4D] bg-white border border-blue-100 rounded-xl focus:outline-none focus:border-[#003DA5] focus:ring-4 focus:ring-blue-100";
 
 function RevenueComparison({ estimate }: { estimate: RevenueEstimate }) {
   const [period, setPeriod] = useState<Period>("monthly");
@@ -60,12 +60,12 @@ function RevenueComparison({ estimate }: { estimate: RevenueEstimate }) {
       label: "Revenus optimisés",
       value: gross,
       detail: `${formatMoney(estimate.potential.nightly)} / nuit · ${Math.round(estimate.potential.occupancy * 100)} % d'occupation`,
-      bar: "bg-gradient-to-r from-[#1D4ED8] to-[#3B82F6]",
+      bar: "bg-gradient-to-r from-[#003DA5] to-[#3B82F6]",
     },
   ];
 
   return (
-    <div className="rounded-2xl bg-gradient-to-br from-[#0B1F4D] to-[#1D4ED8] p-5 md:p-7 text-white overflow-hidden relative">
+    <div className="rounded-2xl bg-gradient-to-br from-[#0B1F4D] to-[#003DA5] p-5 md:p-7 text-white overflow-hidden relative">
       <div className="absolute -right-10 -top-10 w-44 h-44 rounded-full bg-white/5" />
       <div className="relative">
         {/* Period toggle */}
@@ -77,7 +77,7 @@ function RevenueComparison({ estimate }: { estimate: RevenueEstimate }) {
               onClick={() => setPeriod(p.value)}
               className={`px-3 md:px-4 py-1.5 rounded-full text-xs md:text-sm font-medium transition-colors ${
                 period === p.value
-                  ? "bg-white text-[#1D4ED8]"
+                  ? "bg-white text-[#003DA5]"
                   : "text-blue-100 hover:text-white"
               }`}
             >
@@ -118,7 +118,7 @@ function RevenueComparison({ estimate }: { estimate: RevenueEstimate }) {
 
         {/* Net to owner when delegating */}
         <div className="mt-6 rounded-xl bg-white text-[#0B1F4D] p-4 md:p-5">
-          <span className="text-[11px] uppercase tracking-wider text-[#1D4ED8] font-semibold">
+          <span className="text-[11px] uppercase tracking-wider text-[#003DA5] font-semibold">
             Dans vos poches si vous déléguez la gestion
           </span>
           <div className="flex items-baseline gap-2 mt-1 flex-wrap">
@@ -169,8 +169,8 @@ function GainAndProcess({ estimate }: { estimate: RevenueEstimate }) {
 
   return (
     <div className="rounded-2xl md:rounded-3xl bg-white/90 backdrop-blur-md border border-blue-100 shadow-xl shadow-blue-100/40 p-6 md:p-9 mb-5">
-      <span className="text-xs uppercase tracking-wider text-[#1D4ED8] font-semibold">
-        Ce que Conciergite peut vous rajouter
+      <span className="text-xs uppercase tracking-wider text-[#003DA5] font-semibold">
+        Ce que Conciergîte peut vous rajouter
       </span>
       <div className="flex items-baseline gap-2 mt-1 flex-wrap">
         <span className="font-display text-4xl md:text-5xl font-semibold text-[#0B1F4D]">
@@ -189,7 +189,7 @@ function GainAndProcess({ estimate }: { estimate: RevenueEstimate }) {
               <span className="text-xs uppercase tracking-wider text-slate-500">
                 {p.label}
               </span>
-              <p className="font-display text-2xl text-[#1D4ED8] mt-0.5">
+              <p className="font-display text-2xl text-[#003DA5] mt-0.5">
                 +{formatMoney(p.value)}
                 <span className="text-sm text-slate-500 font-sans"> / an</span>
               </p>
@@ -214,7 +214,7 @@ function GainAndProcess({ estimate }: { estimate: RevenueEstimate }) {
             transition={{ delay: 0.15 + i * 0.05 }}
             className="flex gap-3 p-4 rounded-xl border border-blue-100 bg-white/70"
           >
-            <span className="shrink-0 w-8 h-8 rounded-full bg-[#1D4ED8] text-white font-display flex items-center justify-center">
+            <span className="shrink-0 w-8 h-8 rounded-full bg-[#003DA5] text-white font-display flex items-center justify-center">
               {i + 1}
             </span>
             <div>
@@ -224,7 +224,7 @@ function GainAndProcess({ estimate }: { estimate: RevenueEstimate }) {
               <p className="text-sm text-slate-600 mt-1 leading-relaxed">
                 {svc.description}
               </p>
-              <span className="inline-block mt-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-[#1D4ED8]">
+              <span className="inline-block mt-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-[#003DA5]">
                 {LEVER_LABEL[svc.lever]}
               </span>
             </div>
@@ -303,7 +303,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
             <p className="text-slate-500 text-sm md:text-base">
               Votre propriété pourrait générer jusqu&apos;à
             </p>
-            <p className="font-display text-6xl md:text-7xl font-semibold text-[#1D4ED8] leading-none my-2">
+            <p className="font-display text-6xl md:text-7xl font-semibold text-[#003DA5] leading-none my-2">
               +{estimate.gainPercent}&nbsp;%
             </p>
             <p className="text-slate-500 text-sm md:text-base">
@@ -388,7 +388,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
           type="checkbox"
           checked={lead.consent}
           onChange={(e) => setLead({ ...lead, consent: e.target.checked })}
-          className="mt-1 w-5 h-5 rounded border-blue-200 text-[#1D4ED8] focus:ring-blue-200"
+          className="mt-1 w-5 h-5 rounded border-blue-200 text-[#003DA5] focus:ring-blue-200"
         />
         <span className="text-xs md:text-sm text-slate-600 leading-relaxed">
           J&apos;accepte d&apos;être contacté·e au sujet de la gestion de ma
@@ -401,7 +401,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
       <button
         type="submit"
         disabled={!canSubmit}
-        className="mt-5 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1D4ED8] text-white text-base font-medium shadow-lg shadow-blue-200 hover:bg-[#1E3A8A] disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed transition-all"
+        className="mt-5 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#003DA5] text-white text-base font-medium shadow-lg shadow-blue-200 hover:bg-[#1E3A8A] disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed transition-all"
       >
         {submitting ? "Envoi…" : "Voir mon analyse complète"}
       </button>
@@ -415,7 +415,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
       className="rounded-2xl md:rounded-3xl bg-emerald-50 border border-emerald-200 p-5 md:p-6 text-emerald-800 text-sm md:text-base mb-5"
     >
       ✓ Merci{firstName ? `, ${firstName}` : ""}&nbsp;! Voici votre analyse
-      complète. L&apos;équipe Conciergite vous contactera aussi dans les
+      complète. L&apos;équipe Conciergîte vous contactera aussi dans les
       prochains jours ouvrables.
     </motion.div>
   );
@@ -466,7 +466,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
         <RevenueComparison estimate={estimate} />
       </div>
 
-      {/* 2. How much Conciergite adds, and how */}
+      {/* 2. How much Conciergîte adds, and how */}
       <GainAndProcess estimate={estimate} />
 
       {/* 3. Levers + market insight */}
@@ -488,8 +488,8 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
                   <span
                     className={`mt-0.5 shrink-0 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full ${
                       l.impact === "fort"
-                        ? "bg-[#1D4ED8] text-white"
-                        : "bg-blue-100 text-[#1D4ED8]"
+                        ? "bg-[#003DA5] text-white"
+                        : "bg-blue-100 text-[#003DA5]"
                     }`}
                   >
                     {l.impact}
@@ -507,7 +507,7 @@ export default function ResultScreen({ estimate, report, answers }: Props) {
         )}
 
         <div className="rounded-2xl bg-blue-50/70 border border-blue-100 p-5">
-          <span className="text-xs uppercase tracking-wider text-[#1D4ED8] font-semibold">
+          <span className="text-xs uppercase tracking-wider text-[#003DA5] font-semibold">
             Le saviez-vous ?
           </span>
           <p className="text-[#0B1F4D] mt-1 leading-relaxed text-sm md:text-base">

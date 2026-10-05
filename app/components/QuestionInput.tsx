@@ -34,8 +34,8 @@ export default function QuestionInput({
               }}
               className={`text-left px-4 md:px-5 py-3 md:py-4 rounded-xl md:rounded-2xl border transition-all duration-200 ${
                 selected
-                  ? "border-[#1D4ED8] bg-[#1D4ED8] text-white shadow-lg shadow-blue-200"
-                  : "border-blue-100 bg-white/80 backdrop-blur-sm text-[#0B1F4D] hover:border-[#1D4ED8] hover:bg-blue-50"
+                  ? "border-[#003DA5] bg-[#003DA5] text-white shadow-lg shadow-blue-200"
+                  : "border-blue-100 bg-white/80 backdrop-blur-sm text-[#0B1F4D] hover:border-[#003DA5] hover:bg-blue-50"
               }`}
             >
               <span className="block text-sm md:text-base font-medium">{opt.label}</span>
@@ -70,14 +70,14 @@ export default function QuestionInput({
               onClick={() => toggle(opt.value)}
               className={`text-left px-5 py-4 rounded-2xl border transition-all duration-200 flex items-center gap-3 ${
                 selected
-                  ? "border-[#1D4ED8] bg-blue-50 text-[#0B1F4D]"
-                  : "border-blue-100 bg-white/80 backdrop-blur-sm text-[#0B1F4D] hover:border-[#1D4ED8]"
+                  ? "border-[#003DA5] bg-blue-50 text-[#0B1F4D]"
+                  : "border-blue-100 bg-white/80 backdrop-blur-sm text-[#0B1F4D] hover:border-[#003DA5]"
               }`}
             >
               <span
                 className={`w-5 h-5 rounded-md flex items-center justify-center border-2 transition-colors ${
                   selected
-                    ? "bg-[#1D4ED8] border-[#1D4ED8]"
+                    ? "bg-[#003DA5] border-[#003DA5]"
                     : "border-blue-200"
                 }`}
               >
@@ -125,7 +125,7 @@ export default function QuestionInput({
             onKeyDown={(e) => {
               if (e.key === "Enter") onAdvance();
             }}
-            className="w-full px-5 py-4 text-3xl font-display text-[#0B1F4D] bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl focus:outline-none focus:border-[#1D4ED8] focus:ring-4 focus:ring-blue-100"
+            className="w-full px-5 py-4 text-3xl font-display text-[#0B1F4D] bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl focus:outline-none focus:border-[#003DA5] focus:ring-4 focus:ring-blue-100"
           />
           {question.suffix && (
             <span className="text-xl text-slate-500 font-medium">
@@ -198,7 +198,7 @@ export default function QuestionInput({
             onKeyDown={(e) => {
               if (e.key === "Enter") onAdvance();
             }}
-            className="w-full pl-10 pr-5 py-4 text-3xl font-display text-[#0B1F4D] bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl focus:outline-none focus:border-[#1D4ED8] focus:ring-4 focus:ring-blue-100"
+            className="w-full pl-10 pr-5 py-4 text-3xl font-display text-[#0B1F4D] bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl focus:outline-none focus:border-[#003DA5] focus:ring-4 focus:ring-blue-100"
           />
           <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-slate-400">
             $
@@ -218,7 +218,7 @@ export default function QuestionInput({
         onKeyDown={(e) => {
           if (e.key === "Enter") onAdvance();
         }}
-        className="w-full px-5 py-4 text-xl text-[#0B1F4D] bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl focus:outline-none focus:border-[#1D4ED8] focus:ring-4 focus:ring-blue-100"
+        className="w-full px-5 py-4 text-xl text-[#0B1F4D] bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl focus:outline-none focus:border-[#003DA5] focus:ring-4 focus:ring-blue-100"
       />
     );
   }

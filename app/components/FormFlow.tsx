@@ -153,7 +153,7 @@ export default function FormFlow() {
         </div>
         <div className="h-1 bg-blue-100 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-[#1D4ED8] to-[#3B82F6] rounded-full"
+            className="h-full bg-gradient-to-r from-[#003DA5] to-[#3B82F6] rounded-full"
             initial={false}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -205,7 +205,7 @@ export default function FormFlow() {
           type="button"
           onClick={back}
           disabled={index === 0}
-          className="text-xs md:text-sm font-medium text-slate-500 hover:text-[#1D4ED8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors px-2 md:px-3 py-2"
+          className="text-xs md:text-sm font-medium text-slate-500 hover:text-[#003DA5] disabled:opacity-30 disabled:cursor-not-allowed transition-colors px-2 md:px-3 py-2"
         >
           ← Précédent
         </button>
@@ -214,7 +214,7 @@ export default function FormFlow() {
           type="button"
           onClick={() => next()}
           disabled={!canAdvance()}
-          className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#1D4ED8] text-white text-sm md:text-base font-medium shadow-lg shadow-blue-200 hover:bg-[#1E3A8A] disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed transition-all"
+          className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-[#003DA5] text-white text-sm md:text-base font-medium shadow-lg shadow-blue-200 hover:bg-[#1E3A8A] disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed transition-all"
         >
           {index === total - 1 ? "Voir mon potentiel" : "Suivant"}
           <Arrow />

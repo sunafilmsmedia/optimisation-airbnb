@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0B1F4D;
-  --brand-blue: #1D4ED8;
+  --brand-blue: #003DA5;
   --brand-blue-light: #3B82F6;
   --brand-blue-dark: #0B1F4D;
   --brand-blue-pale: #EFF6FF;
@@ -40,7 +40,7 @@ body {
 .page-bg {
   background: linear-gradient(
     to top,
-    #1D4ED8 0%,
+    #003DA5 0%,
     #3B82F6 14%,
     #93C5FD 32%,
     #DBEAFE 50%,
@@ -78,10 +78,10 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 24px;
   height: 24px;
-  background: #1D4ED8;
+  background: #003DA5;
   border-radius: 9999px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 61, 165, 0.35);
   transition: transform 0.15s ease;
 }
 
@@ -92,9 +92,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 input[type="range"]::-moz-range-thumb {
   width: 24px;
   height: 24px;
-  background: #1D4ED8;
+  background: #003DA5;
   border-radius: 9999px;
   cursor: pointer;
   border: none;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 61, 165, 0.35);
 }

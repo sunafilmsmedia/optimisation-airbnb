@@ -14,7 +14,7 @@ export default function AILoading() {
         {/* Animated AI orb — pulsing gradient ring with sparkle */}
         <div className="relative w-20 h-20 md:w-24 md:h-24 mb-6">
           <motion.div
-            className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1D4ED8] via-[#3B82F6] to-[#93C5FD]"
+            className="absolute inset-0 rounded-full bg-gradient-to-br from-[#003DA5] via-[#3B82F6] to-[#93C5FD]"
             animate={{
               scale: [1, 1.08, 1],
               opacity: [0.85, 1, 0.85],
@@ -40,7 +40,7 @@ export default function AILoading() {
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           >
             <svg
-              className="w-9 h-9 md:w-11 md:h-11 text-[#1D4ED8]"
+              className="w-9 h-9 md:w-11 md:h-11 text-[#003DA5]"
               viewBox="0 0 24 24"
               fill="none"
             >
@@ -53,7 +53,7 @@ export default function AILoading() {
           </motion.div>
         </div>
 
-        <p className="font-display font-medium text-lg md:text-xl text-[#1D4ED8] mb-1">
+        <p className="font-display font-medium text-lg md:text-xl text-[#003DA5] mb-1">
           L&apos;intelligence artificielle
         </p>
         <h2 className="font-display text-2xl md:text-3xl text-[#0B1F4D] leading-tight mb-3">
@@ -70,7 +70,7 @@ export default function AILoading() {
           {[0, 1, 2].map((i) => (
             <motion.span
               key={i}
-              className="w-2 h-2 rounded-full bg-[#1D4ED8]"
+              className="w-2 h-2 rounded-full bg-[#003DA5]"
               animate={{ opacity: [0.3, 1, 0.3] }}
               transition={{
                 duration: 1.2,

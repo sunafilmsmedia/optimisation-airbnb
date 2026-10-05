@@ -20,7 +20,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Conciergite | Découvrez le potentiel de votre Airbnb",
+  title: "Conciergîte | Découvrez le potentiel de votre Airbnb",
   description:
     "Estimez en 2 minutes combien votre Airbnb pourrait vous rapporter par mois et par saison avec une gestion optimisée, grâce à l'intelligence artificielle.",
 };

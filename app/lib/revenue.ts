@@ -1,7 +1,7 @@
 export type Answers = Record<string, unknown>;
 
 /**
- * Conciergite charges 12-15 % of net revenue. We compute with the top of the
+ * Conciergîte charges 12-15 % of net revenue. We compute with the top of the
  * range so the owner's "net" figure is never overstated.
  */
 export const MANAGEMENT_FEE = 0.15;
